@@ -98,7 +98,7 @@ const checkForWin = () => {
     ghosts.forEach(ghost=> clearInterval(ghost.timerId))
     document.removeEventListener('keyup', move)
     scoreDisplay.innerHTML = 'YOU WIN'
-    setTimeout(() => window.alert('YOU WON MOTHER FUCKER!!!!'), 500)
+    setTimeout(() => window.alert('YOU WON!!!!'), 500)
   }
 }
 
