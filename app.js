@@ -1,12 +1,13 @@
 import {ghosts} from './ghosts.js'
 import {squares, scoreDisplay, width, nodeDictionary} from './gameBoard.js'
-
+import {getCoodinates} from './getCoodinates.js'
   console.log('LOADED')
   /* ==================== GAME LOGIC ========================================== */
   // start position
   export let score = 0
-  let pacManIndex = 490
-  let packManRow
+  export let pacManIndex = 490
+  console.log('PACKMAN Coords: ', getCoodinates(pacManIndex))
+  
   squares[pacManIndex].classList.add('pac-man')
 
   export const handleScore = (points) => {
@@ -94,7 +95,7 @@ export const checkForGameOver = () => {
 }
 
 const checkForWin = () => {
-  if(score >= 274){
+  if(score > 274){
     ghosts.forEach(ghost=> clearInterval(ghost.timerId))
     document.removeEventListener('keyup', move)
     scoreDisplay.innerHTML = 'YOU WIN'
