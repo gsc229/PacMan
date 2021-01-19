@@ -15,27 +15,14 @@ import {layout1 as layout} from './layouts.js'
   // 3 - power-pellet
   // 4 - empty
   export const squares = []
-  export const nodeDictionary = {
-    contents: {
-      structureOfDictionary: {
-        nodeIndex: {
-          x: 0,
-          y:  0,
-        }
-      }
-    }
-  }
   // create board
   function createBoard(){
-
-   
 
     /* Construct the nodes */
     for(let i = 0; i < layout.length; i++){
 
       const x = i % width
       const y = Math.floor(i/width)
-      console.log('x: ', x, 'y: ', y)
       /* Determine if on edge */
      
       
@@ -62,26 +49,9 @@ import {layout1 as layout} from './layouts.js'
         squares[i].classList.add('empty')
       }
 
-      if(x===0 || y===0 || x===width - 1  || y===width - 1){
+      /* if(x===0 || y===0 || x===width - 1  || y===width - 1){
         squares[i].classList.add('edge-piece')
-        console.log('EDGE PIECE')
-      }
-
-      /* Save node info to the dictionary:  */
-      const classList = JSON.parse(JSON.stringify(square.classList))
-      nodeDictionary[i] = {
-        index: i,
-        x: x, 
-        y: y,
-        classes: Object.values(classList)
-     }
-      
-      console.log(nodeDictionary)
-
+      } */
     }
-
-    //console.log('GRID: ',grid)
-    //console.log('SQUARES: ', squares)
   }
-
   createBoard()

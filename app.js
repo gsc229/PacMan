@@ -1,25 +1,24 @@
 import {ghosts} from './ghosts.js'
-import {squares, scoreDisplay, width, nodeDictionary} from './gameBoard.js'
+import {squares, scoreDisplay, width} from './gameBoard.js'
 import {getCoodinates} from './getCoodinates.js'
-  console.log('LOADED')
+  //console('LOADED')
   /* ==================== GAME LOGIC ========================================== */
   // start position
   export let score = 0
   export let pacManIndex = 490
-  console.log('PACKMAN Coords: ', getCoodinates(pacManIndex))
+  //console('PACKMAN Coords: ', getCoodinates(pacManIndex))
   
   squares[pacManIndex].classList.add('pac-man')
 
   export const handleScore = (points) => {
     score += points
-    console.log('SCORE + ', points)
+    //console('SCORE + ', points)
   }
 
   
   // move
   function move(e){
     squares[pacManIndex].classList.remove('pac-man')
-    console.log(e.keyCode)
     switch (e.keyCode) {
       // LEFT
       case 37:
@@ -50,8 +49,6 @@ import {getCoodinates} from './getCoodinates.js'
     }
 
     squares[pacManIndex].classList.add('pac-man')
-    let currentNode = nodeDictionary[pacManIndex]
-    console.log('Node', currentNode.index, 'Row:', currentNode.row, 'Column: ' , currentNode.col, 'Classes: ', ...currentNode.classes)
     pacDotEaten()
     powerPelletEaten()
     checkForGameOver()
