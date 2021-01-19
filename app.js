@@ -87,7 +87,7 @@ export const checkForGameOver = () => {
     ghosts.forEach(ghost => clearInterval(ghost.timerId))
     document.removeEventListener('keyup', move)
     setTimeout(()=> window.alert('You Lose!'), 500)
-    scoreDisplay.innerHTML = 'GAME OVER!'
+    scoreDisplay.innerHTML = `${score} GAME OVER! `
   }
 }
 
@@ -95,7 +95,7 @@ const checkForWin = () => {
   if(score > 274){
     ghosts.forEach(ghost=> clearInterval(ghost.timerId))
     document.removeEventListener('keyup', move)
-    scoreDisplay.innerHTML = 'YOU WIN'
+    scoreDisplay.innerHTML = `YOU WIN SCORE: ${score}`
     setTimeout(() => window.alert('YOU WON!!!!'), 500)
   }
 }
