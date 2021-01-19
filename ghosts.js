@@ -38,15 +38,12 @@ function moveGhost(ghost){
 
   const directions = [-1, +1, width, -width]
   let direction = directions[Math.floor(Math.random() * directions.length)]
-  
-  console.log('GHOST: ', ghost)
-  console.log(direction)
+
   /* SET TIME INTERVAL - THIS FUNCTION EXECUTES EVERY 300 MILISECONDS */
   ghost.timerId = setInterval(()=>{
     
     // if the next square in the ghost's direction does NOT contain a wall and another ghost, you can go
     if(!squares[ghost.currentIndex + direction].classList.contains('wall') && !squares[ghost.currentIndex + direction].classList.contains('ghost')){
-      console.log('PAC MAN INDEX: ', pacManIndex)
       const [ghostX, ghostY] = getCoodinates(ghost.currentIndex)
       const [pacmanX, pacmanY] = getCoodinates(pacManIndex)
       const [ghostNewX, ghostNewY ] = getCoodinates(ghost.currentIndex + direction)
@@ -63,22 +60,10 @@ function moveGhost(ghost){
 
       /* IF the ghosts are getting closer to pacman */
       if(isXCloser() && isYCloser()){
-        //console.log('PAC MAN INDEX: ', pacManIndex)
-        console.log({
-          ghost: ghost.className,
-          ghostX,
-          ghostY,
-          pacmanX,
-          pacmanY,
-          ghostNewX,
-          ghostNewY,
-          isXCloser: isXCloser(),
-          isYCloser: isYCloser()
-        })
+        ////console('PAC MAN INDEX: ', pacManIndex)
         
         // you can go here
         // remove all ghost related classes
-        //console.log('SQUARE', squares[ghost.currentIndex]) 
         squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
         // Add class pac-dot to the square about to leave if the square also has the class of 'empty'
         if(ghost.leftPacDot && !squares[ghost.prevIndex].classList.contains('empty') && !squares[ghost.prevIndex].classList.contains('power-pellet') ){
